@@ -12,6 +12,8 @@ namespace Lab1
             Function b = new ExponentialFunction(2);
             Function c = new PowerFunction(2, 3);
             Function d = new LogarithmFunction(2);
+
+
             Console.WriteLine(a.Derivative());
             Console.WriteLine(a.Calculate(1));
             Console.WriteLine("______________________________________________________");
