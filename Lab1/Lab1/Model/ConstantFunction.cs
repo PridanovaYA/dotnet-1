@@ -22,7 +22,7 @@ namespace Lab1.Model
 
         public override dynamic Calculate(double value)
         {
-            return $"y = {C}";
+            return C;
         }
 
         public override string Derivative()
