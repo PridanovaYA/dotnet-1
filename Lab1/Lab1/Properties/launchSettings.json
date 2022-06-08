@@ -1,0 +1,32 @@
+{
+  "profiles": {
+    "add": {
+      "commandName": "Project",
+      "commandLineArgs": "add"
+    },
+    "remove": {
+      "commandName": "Project",
+      "commandLineArgs": "remove"
+    },
+    "print": {
+      "commandName": "Project",
+      "commandLineArgs": "print"
+    },
+    "comparison": {
+      "commandName": "Project",
+      "commandLineArgs": "comparison"
+    },
+    "insert": {
+      "commandName": "Project",
+      "commandLineArgs": "insert"
+    },
+    "max_function": {
+      "commandName": "Project",
+      "commandLineArgs": "max_function"
+    },
+    "remove_all": {
+      "commandName": "Project",
+      "commandLineArgs": "remove_all"
+    }
+  }
+}

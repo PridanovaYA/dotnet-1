@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab1.Model
+﻿namespace Lab1.Model
 {
-    internal class ConstantFunction : Function
+    public class ConstantFunction : Function
     {
-        private double C { get; set; }
+        public double C { get; init; }
 
         public ConstantFunction()
         {
@@ -27,7 +21,12 @@ namespace Lab1.Model
 
         public override string Derivative()
         {
-            return "y' = 0";
+            return "y'= 0";
+        }
+
+        public override string ToString()
+        {
+            return $"y = {C}";
         }
 
         public override bool Equals(object obj)
@@ -39,17 +38,9 @@ namespace Lab1.Model
             return C == other.C;
         }
 
-        public override string ToString()
-        {
-            return $"y = {C}";
-        } 
-
         public override int GetHashCode()
         {
             return C.GetHashCode();
         }
-
-
     }
 }
-

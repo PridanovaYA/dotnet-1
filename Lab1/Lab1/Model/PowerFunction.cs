@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab1.Model
 {
-    internal class PowerFunction : Function
+    public class PowerFunction : Function
     {
-        private double Сoefficient { get; set; }
+        public double Сoefficient { get; init; }
 
-        private double Degree { get; set; }
+        public double Degree { get; init; }
 
         public PowerFunction()
         {
@@ -33,13 +29,30 @@ namespace Lab1.Model
         {
             if (Degree == 0 || Сoefficient == 0)
             {
-                return "y' = 0";
+                return "y'= 0";
             }
             if (Degree == 1)
             {
-                return $"y' = {Сoefficient * Degree}";
+                return $"y'= {Сoefficient * Degree}";
             }
-            return $"y' = {Сoefficient * Degree}x^{Degree - 1}";
+            return $"y'= {Сoefficient * Degree}x^{Degree - 1}";
+        }
+
+        public override string ToString()
+        {
+            if (Сoefficient == 0)
+            {
+                return $"y= 0";
+            }
+            if (Сoefficient == 1 && Degree != 0)
+            {
+                return $"y= x^{Degree}";
+            }
+            if (Degree == 0)
+            {
+                return $"y= {Сoefficient}";
+            }
+            return $"y = {Сoefficient}x^{Degree}";
         }
 
         public override bool Equals(Object obj)
@@ -48,24 +61,7 @@ namespace Lab1.Model
             {
                 return false;
             }
-            return (Сoefficient == other.Сoefficient) && (Degree == other.Degree);
-        }
-
-        public override string ToString()
-        {
-            if (Сoefficient == 0)
-            {
-                return $"y = 0";
-            }
-            if (Сoefficient == 1 && Degree != 0)
-            {
-                return $"y = x^{Degree}";
-            }
-            if (Degree == 0)
-            {
-                return $"y = {Сoefficient}";
-            }
-            return $"y = {Сoefficient}x^{Degree}";
+            return Сoefficient == other.Сoefficient && Degree == other.Degree;
         }
 
         public override int GetHashCode()

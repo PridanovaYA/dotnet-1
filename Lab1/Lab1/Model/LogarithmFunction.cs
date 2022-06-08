@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab1.Model
 {
-    internal class LogarithmFunction : Function
+    public class LogarithmFunction : Function
     {
-        private double BaseLog { get; set; }
+        public double BaseLog { get; init; }
 
         public LogarithmFunction()
         {
@@ -24,7 +20,7 @@ namespace Lab1.Model
         {
             if (x <= 0 || BaseLog <= 0 || BaseLog == 1)
             {
-                return "Cannot be determined. Change the value.";
+                return "indefinitely";
             }
             return Math.Log(x, BaseLog);
         }
@@ -33,9 +29,14 @@ namespace Lab1.Model
         {
             if (BaseLog <= 0 || BaseLog == 1)
             {
-                return "Cannot be determined. Change the value.";
+                return "indefinitely";
             }
-            return $"y' = {Math.Round((1 / Math.Log(BaseLog)),2)}*x^-1";
+            return $"y'= {Math.Round(1 / Math.Log(BaseLog), 5)}*x^-1";
+        }
+
+        public override string ToString()
+        {
+            return $"y = log_{BaseLog}x";
         }
 
         public override bool Equals(Object obj)
@@ -47,17 +48,9 @@ namespace Lab1.Model
             return BaseLog == other.BaseLog;
         }
 
-        public override string ToString()
-        {
-            return $"y = log_{BaseLog}x";
-        }
-
         public override int GetHashCode()
         {
             return BaseLog.GetHashCode();
         }
-        
     }
-    
 }
-

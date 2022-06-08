@@ -1,41 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab1.Model
 {
-    internal class ExponentialFunction : Function
+    public class ExponentialFunction : Function
     {
-        private double BaseDegree { get; set; }
+        public double BaseOfDegree { get; init; }
 
         public ExponentialFunction()
         {
-            BaseDegree = 0;
+            BaseOfDegree = 0;
         }
 
-        public ExponentialFunction(double baseDegree)
+        public ExponentialFunction(double baseOfDegree)
         {
-            BaseDegree = baseDegree;
+            BaseOfDegree = baseOfDegree;
         }
 
         public override dynamic Calculate(double x)
         {
-            if (BaseDegree <= 0 || BaseDegree == 1)
+            if (BaseOfDegree <= 0 || BaseOfDegree == 1)
             {
-                return "Cannot be determined. Change the value.";
+                return "indefinitely";
             }
-            return Math.Pow(BaseDegree, x);
+            return Math.Pow(BaseOfDegree, x);
         }
 
         public override string Derivative()
         {
-            if (BaseDegree <= 0 || BaseDegree == 1)
+            if (BaseOfDegree <= 0 || BaseOfDegree == 1)
             {
                 return "y'= 0";
             }
-            return $"y'= {BaseDegree}^x*{Math.Round(Math.Log(BaseDegree), 2)}";
+            return $"y'= {BaseOfDegree}^x*{Math.Round(Math.Log(BaseOfDegree), 5)}";
+        }
+
+        public override string ToString()
+        {
+            return $"y = {BaseOfDegree}^x";
         }
 
         public override bool Equals(object obj)
@@ -44,16 +45,12 @@ namespace Lab1.Model
             {
                 return false;
             }
-            return BaseDegree == other.BaseDegree;
-        }
-        public override string ToString()
-        {
-            return $"y = {BaseDegree}^x";
+            return BaseOfDegree == other.BaseOfDegree;
         }
 
         public override int GetHashCode()
         {
-            return BaseDegree.GetHashCode();
+            return BaseOfDegree.GetHashCode();
         }
     }
 }
